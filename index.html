@@ -149,202 +149,553 @@
   </section>
 
   <!-- =========================================================================
-       1. SCREEN 1: GIAO DIỆN CHỌN KHỐI LỚP (MẶC ĐỊNH KHI VỪA TRUY CẬP WEB)
+       1. SCREEN 1: GIAO DIỆN CHỌN KHỐI LỚP (LANDING PAGE PHONG CÁCH MATEMATICA)
        ========================================================================= -->
-  <section id="grade-selection-screen" class="grade-landing-screen" style="display: none;">
-    <!-- Header of Landing -->
-    <div class="landing-header">
-      <div class="brand-section">
-        <div class="brand-logo">∑</div>
-        <div>
-          <span class="brand-title">TOÁN HỌC TRỰC TUYẾN</span>
-          <span class="brand-badge">GDPT 2018</span>
+  <section id="grade-selection-screen" class="grade-landing-screen mat-landing" style="display: none;">
+
+    <!-- TOP UTILITY BAR (Địa chỉ, Hotline, Theme Switcher) -->
+    <div class="mat-topbar">
+      <div class="mat-container mat-topbar-inner">
+        <div class="mat-topbar-left">
+          <span>📍 Hệ thống luyện thi Toán học THPT trực tuyến</span>
+          <span class="topbar-divider">•</span>
+          <span>📞 Hotline tư vấn: <strong>0988.123.456</strong></span>
         </div>
-      </div>
-      <div class="header-actions">
-        <!-- User Auth Widget (Hiển thị tài khoản / nút đăng nhập) -->
-        <div class="user-auth-widget" id="user-widget-landing"></div>
-        <!-- Role Switcher for Landing -->
-        <div class="role-selector-pill" id="role-selector-landing" title="Chọn vai trò: Học sinh luyện tập hoặc Giáo viên quản lý & sửa tài liệu">
-          <button type="button" class="role-pill-btn active" data-role="student">👨‍🎓 Học sinh</button>
-          <button type="button" class="role-pill-btn" data-role="teacher">👨‍🏫 Giáo viên</button>
+        <div class="mat-topbar-right">
+          <div class="role-selector-pill mat-role-pill" id="role-selector-landing" title="Chọn vai trò người dùng">
+            <button type="button" class="role-pill-btn active" data-role="student">👨‍🎓 Học sinh</button>
+            <button type="button" class="role-pill-btn" data-role="teacher">👨‍🏫 Giáo viên</button>
+          </div>
+          <button type="button" class="btn-icon mat-theme-btn" id="theme-toggle-btn-landing" title="Chuyển giao diện Sáng / Tối">
+            🌙
+          </button>
         </div>
-        <button type="button" class="btn-icon" id="theme-toggle-btn-landing" title="Chuyển chế độ sáng / tối" aria-label="Toggle Theme">
-          🌙
-        </button>
       </div>
     </div>
 
-    <!-- Hero Announcement -->
-    <div class="landing-hero">
-      <div class="landing-pill">
-        <span>✨</span> CHƯƠNG TRÌNH GIÁO DỤC PHỔ THÔNG 2018
-      </div>
-      <h1 class="landing-title">
-        Hệ Thống Luyện Tập & Đề Thi <span>Môn Toán THPT</span>
-      </h1>
-      <p class="landing-desc">
-        Học liệu bám sát 100% định dạng đề thi mới của Bộ Giáo dục & Đào tạo. Tích hợp trắc nghiệm 4 lựa chọn, đúng/sai, trả lời ngắn, tự luận thực tế và phòng thi thử 90 phút.
-      </p>
-    </div>
-
-    <!-- 3 Interactive Grade Selection Cards (Bento Grid Style) -->
-    <div class="grade-cards-grid bento-grid">
-
-      <!-- LỚP 12 (HERO BENTO CARD - NHẤN MẠNH TRỌNG TÂM) -->
-      <div class="grade-card bento-card bento-featured" data-grade="12" id="card-grade-12">
-        <div class="grade-card-top">
-          <div class="grade-card-icon-wrap warm-coral">
-            <span class="icon-sticker">📈</span>
-          </div>
-          <div class="bento-badges-row">
-            <span class="grade-badge-hot">🔥 ĐẦY ĐỦ 100%</span>
-            <span class="grade-badge-sticker">Bộ 7 Đề 2025</span>
+    <!-- MAIN NAVBAR (Logo, Menu Nav, User Auth Button) -->
+    <header class="mat-navbar">
+      <div class="mat-container mat-navbar-inner">
+        <div class="mat-brand" id="btn-brand-landing-top">
+          <div class="mat-brand-logo">∑</div>
+          <div class="mat-brand-text">
+            <span class="mat-brand-title">Matematica</span>
+            <span class="mat-brand-badge">GDPT 2018</span>
           </div>
         </div>
-        <div class="bento-header-content">
-          <div class="bento-level-tag">Lớp Tốt Nghiệp THPT</div>
-          <h2 class="grade-card-title">Toán Học Lớp 12</h2>
-          <p class="grade-card-subtitle">
-            Hành trang chinh phục kỳ thi Tốt nghiệp THPT & Đánh giá năng lực 2025 chuẩn ma trận GDPT 2018
+
+        <nav class="mat-nav-menu">
+          <a href="#section-hero" class="mat-nav-link active">Trang chủ</a>
+          <a href="#section-grades" class="mat-nav-link">Khóa học & Khối lớp</a>
+          <a href="#section-philosophy" class="mat-nav-link">Triết lý giảng dạy</a>
+          <a href="#section-compare" class="mat-nav-link">So sánh</a>
+          <a href="#section-testimonials" class="mat-nav-link">Đánh giá</a>
+          <a href="#section-faq" class="mat-nav-link">Hỏi đáp (FAQ)</a>
+          <a href="#section-contact" class="mat-nav-link">Liên hệ</a>
+        </nav>
+
+        <div class="mat-navbar-actions">
+          <div class="user-auth-widget" id="user-widget-landing"></div>
+        </div>
+      </div>
+    </header>
+
+    <!-- 1. HERO SECTION 2 CỘT ĐỈNH CAO (Title, Switch Pills, Hero Image) -->
+    <section id="section-hero" class="mat-hero-section">
+      <div class="mat-container mat-hero-grid">
+        <div class="mat-hero-left">
+          <div class="mat-hero-badge">
+            <span class="badge-dot"></span> CHƯƠNG TRÌNH GIÁO DỤC PHỔ THÔNG 2018
+          </div>
+          <h1 class="mat-hero-title">
+            Học Toán Không Áp Lực, <span>Vượt Mọi Rào Cản.</span>
+          </h1>
+          <p class="mat-hero-desc">
+            Nền tảng học tập & luyện thi môn Toán THPT thông minh. Biến những công thức phức tạp thành tư duy logic mạch lạc với học liệu trực quan, đề thi chuẩn 100% định dạng Bộ GD&ĐT 2025.
+          </p>
+
+          <!-- 3 Pills Tabs chuyển nhanh khối lớp -->
+          <div class="mat-hero-pills">
+            <button type="button" class="mat-pill-btn active" data-grade="12">
+              <span class="pill-dot"></span> Khóa Lớp 12 (Tốt Nghiệp)
+            </button>
+            <button type="button" class="mat-pill-btn" data-grade="11">
+              Khóa Lớp 11 (Nâng Cao)
+            </button>
+            <button type="button" class="mat-pill-btn" data-grade="10">
+              Khóa Lớp 10 (Nền Tảng)
+            </button>
+          </div>
+
+          <!-- Rating & Social Proof Bar -->
+          <div class="mat-hero-social-proof">
+            <div class="mat-avatar-stack">
+              <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&auto=format&fit=crop&q=80" alt="Student" class="stack-avatar">
+              <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&auto=format&fit=crop&q=80" alt="Student" class="stack-avatar">
+              <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&auto=format&fit=crop&q=80" alt="Student" class="stack-avatar">
+              <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&auto=format&fit=crop&q=80" alt="Student" class="stack-avatar">
+            </div>
+            <div class="mat-proof-text">
+              <div class="mat-stars">★★★★★ <span class="stars-val">5.0 / 5.0</span></div>
+              <p>Hơn <strong>12.500+ học sinh</strong> tự tin bứt phá điểm 8+, 9+ môn Toán THPT</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="mat-hero-right">
+          <div class="mat-hero-image-wrapper">
+            <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=900&auto=format&fit=crop&q=80" alt="Học sinh học tập hào hứng" class="mat-hero-img">
+            <div class="mat-hero-float-card">
+              <div class="float-card-icon">🎯</div>
+              <div class="float-card-content">
+                <strong>Bộ 7 Đề Chuẩn 2025</strong>
+                <span>Cấu trúc 4 phần mới nhất Bộ GD&ĐT</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. MISSION QUOTE STRIP -->
+    <div class="mat-mission-strip">
+      <div class="mat-container">
+        <p class="mat-mission-text">
+          "Tại <strong>Matematica</strong>, môn Toán không còn là nỗi sợ hay rào cản điểm số. Đó là nơi bạn tìm thấy sự tự tin, làm chủ tư duy phản biện với lộ trình thực chiến và người thầy đồng hành tận tâm."
+        </p>
+      </div>
+    </div>
+
+    <!-- 3. STATS COUNTER STRIP (4 CỘT CHỈ SỐ ẤN TƯỢNG) -->
+    <section class="mat-stats-section">
+      <div class="mat-container mat-stats-grid">
+        <div class="mat-stat-box">
+          <div class="stat-number">94%</div>
+          <div class="stat-desc">Học sinh nâng band điểm rõ rệt chỉ sau 2 tháng ôn luyện đúng phương pháp.</div>
+        </div>
+        <div class="mat-stat-box">
+          <div class="stat-number">100%</div>
+          <div class="stat-desc">Kiến thức và ngân hàng câu hỏi bám sát chuẩn Chương trình GDPT 2018.</div>
+        </div>
+        <div class="mat-stat-box">
+          <div class="stat-number">7+</div>
+          <div class="stat-desc">Bộ đề thi thử Giữa HK1 ma trận chuẩn 90 phút có bảng điểm và phân tích lỗi tức thì.</div>
+        </div>
+        <div class="mat-stat-box">
+          <div class="stat-number">1:1</div>
+          <div class="stat-desc">Hệ thống gợi ý lời giải KaTeX chi tiết, trực quan hóa hình học không gian 3D.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. TEACHER SPOTLIGHT / TRIẾT LÝ GIẢNG DẠY -->
+    <section id="section-philosophy" class="mat-teacher-section">
+      <div class="mat-container mat-teacher-grid">
+        <div class="mat-teacher-content">
+          <div class="mat-section-sub">TRIẾT LÝ ĐỒNG HÀNH</div>
+          <blockquote class="mat-teacher-quote">
+            “Tôi dạy Toán bằng tất cả đam mê và niềm tin sắt đá rằng: Bất kỳ học sinh nào cũng có thể hiểu và đạt điểm giỏi môn Toán, nếu được tiếp cận đúng phương pháp và không bị áp đặt tâm lý.”
+          </blockquote>
+          <div class="mat-teacher-meta">
+            <div class="teacher-name">Thầy Nguyễn Văn Toàn</div>
+            <div class="teacher-role">Thủ khoa Sư phạm Toán • Sáng lập Hệ thống Matematica Online</div>
+          </div>
+        </div>
+        <div class="mat-teacher-image-wrapper">
+          <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=800&auto=format&fit=crop&q=80" alt="Giáo viên hướng dẫn tận tâm" class="mat-teacher-img">
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. FEATURE COMPARISON TABLE ("TẠI SAO CHỌN CHÚNG TÔI?") -->
+    <section id="section-compare" class="mat-compare-section">
+      <div class="mat-container">
+        <div class="mat-section-header text-center">
+          <div class="mat-section-sub">TẠI SAO CHỌN CHÚNG TÔI?</div>
+          <h2 class="mat-section-title">Điểm Khác Biệt Giữa Matematica & Cách Học Cũ</h2>
+          <p class="mat-section-desc">So sánh trực quan giải pháp luyện thi số hóa thế hệ mới và lớp học truyền thống.</p>
+        </div>
+
+        <div class="mat-compare-table-wrapper">
+          <table class="mat-compare-table">
+            <thead>
+              <tr>
+                <th class="col-feature">Tiêu Chí Luyện Thi</th>
+                <th class="col-highlight">
+                  <div class="table-brand-tag">Matematica</div>
+                  <span>Nền tảng Toán THPT 2018</span>
+                </th>
+                <th class="col-normal">Cách học truyền thống</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <strong>Lộ trình học tập cá nhân hóa</strong>
+                  <p>Học đúng phần còn yếu, không lãng phí thời gian vào nội dung đã nắm vững.</p>
+                </td>
+                <td class="col-highlight"><span class="check-circle">✓</span> Tự chọn chuyên đề & luyện cấp tốc</td>
+                <td class="col-normal"><span class="cross-circle">✕</span> Dạy chung cả lớp cào bằng</td>
+              </tr>
+              <tr>
+                <td>
+                  <strong>Học không áp lực & Chủ động thời gian</strong>
+                  <p>Luyện tập mọi lúc mọi nơi trên điện thoại, máy tính bảng và laptop.</p>
+                </td>
+                <td class="col-highlight"><span class="check-circle">✓</span> Linh hoạt 24/7, tự làm lại đề</td>
+                <td class="col-normal"><span class="cross-circle">✕</span> Cố định giờ học, dễ quá tải</td>
+              </tr>
+              <tr>
+                <td>
+                  <strong>Chuẩn ma trận 4 phần mới Bộ GD&ĐT 2025</strong>
+                  <p>Trắc nghiệm 4 lựa chọn, Đúng/Sai, Điền số trả lời ngắn và Tự luận thực tế.</p>
+                </td>
+                <td class="col-highlight"><span class="check-circle">✓</span> Cập nhật 100% đề thi mới nhất</td>
+                <td class="col-normal"><span class="cross-circle">✕</span> Nhiều tài liệu cũ format trước 2024</td>
+              </tr>
+              <tr>
+                <td>
+                  <strong>Trực quan hóa hình học không gian 3D & KaTeX</strong>
+                  <p>Mô phỏng đồ thị, hàm số thực tế Parabol, gập thùng tôn, hợp lực vectơ 3D.</p>
+                </td>
+                <td class="col-highlight"><span class="check-circle">✓</span> Đồ họa SVG sắc nét & công thức chuẩn</td>
+                <td class="col-normal"><span class="cross-circle">✕</span> Bản in mờ, công thức khó nhìn</td>
+              </tr>
+              <tr>
+                <td>
+                  <strong>Phòng thi thử 90 phút có chấm điểm tức thì</strong>
+                  <p>Đồng hồ đếm ngược, phân tích chi tiết lỗi sai và lưu tiến độ lên trình duyệt.</p>
+                </td>
+                <td class="col-highlight"><span class="check-circle">✓</span> Bảng điểm & lời giải từng bước</td>
+                <td class="col-normal"><span class="cross-circle">✕</span> Chấm thủ công, mất nhiều ngày</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. 3 INTERACTIVE GRADE COURSES CARDS (LỚP 12, 11, 10 THEO PHONG CÁCH CARD MATEMATICA) -->
+    <section id="section-grades" class="mat-courses-section">
+      <div class="mat-container">
+        <div class="mat-section-header text-center">
+          <div class="mat-section-sub">CHƯƠNG TRÌNH ĐÀO TẠO</div>
+          <h2 class="mat-section-title">Các Khóa Luyện Thi Chuyên Biệt Theo Khối Lớp</h2>
+          <p class="mat-section-desc">Chọn ngay khối lớp của bạn để bước vào không gian ôn luyện chuyên sâu và phòng thi thử.</p>
+        </div>
+
+        <div class="mat-cards-grid">
+
+          <!-- THẺ 1: LỚP 12 (FEATURED DARK CARD - SANG TRỌNG) -->
+          <div class="mat-card mat-card-dark" data-grade="12" id="card-grade-12">
+            <div class="mat-card-header">
+              <div class="mat-card-badge-top">🔥 KHÓA TỐT NGHIỆP TRỌNG TÂM</div>
+              <h3 class="mat-card-title">Toán Học Lớp 12</h3>
+              <p class="mat-card-subtitle">Chinh phục Kỳ thi Tốt nghiệp THPT & Đánh giá năng lực 2025 chuẩn ma trận Bộ GD&ĐT.</p>
+            </div>
+
+            <div class="mat-card-img-wrap">
+              <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=600&auto=format&fit=crop&q=80" alt="Khóa Lớp 12" class="mat-course-img">
+            </div>
+
+            <ul class="mat-feature-list">
+              <li><span class="mat-check">✓</span> <strong>5 Chuyên đề trọng tâm:</strong> Đơn điệu, Cực trị, GTLN-GTNN, Tiệm cận, Vectơ Oxyz.</li>
+              <li><span class="mat-check">✓</span> <strong>Bộ 7 Đề thi Giữa HKI 2025:</strong> Đầy đủ 4 phần (12 MCQ + 4 Đúng/Sai + 6 Điền số + Tự luận).</li>
+              <li><span class="mat-check">✓</span> <strong>Phòng thi thử 90 phút:</strong> Tự động chấm điểm, tính thời gian thực và phân tích lỗi.</li>
+            </ul>
+
+            <button type="button" class="mat-btn-action mat-btn-orange">
+              <span>Bắt đầu học Lớp 12 ngay</span>
+              <span class="btn-arrow">↗</span>
+            </button>
+          </div>
+
+          <!-- THẺ 2: LỚP 11 (VIBRANT ORANGE THEME) -->
+          <div class="mat-card mat-card-orange" data-grade="11" id="card-grade-11">
+            <div class="mat-card-header">
+              <div class="mat-card-badge-top white-badge">CHƯƠNG TRÌNH MỚI 2025</div>
+              <h3 class="mat-card-title">Toán Học Lớp 11</h3>
+              <p class="mat-card-subtitle">Hàm số lượng giác, dãy số cấp số, giới hạn và quan hệ không gian vuông góc.</p>
+            </div>
+
+            <div class="mat-card-img-wrap">
+              <img src="https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?w=600&auto=format&fit=crop&q=80" alt="Khóa Lớp 11" class="mat-course-img">
+            </div>
+
+            <ul class="mat-feature-list light-list">
+              <li><span class="mat-check">✓</span> <strong>Lượng giác & Dãy số:</strong> Phương trình lượng giác, Cấp số cộng, Cấp số nhân.</li>
+              <li><span class="mat-check">✓</span> <strong>Giới hạn hàm số:</strong> Giới hạn dãy số & Tính liên tục của hàm số.</li>
+              <li><span class="mat-check">✓</span> <strong>Hình học không gian:</strong> Quan hệ vuông góc và góc trong không gian.</li>
+            </ul>
+
+            <button type="button" class="mat-btn-action mat-btn-white">
+              <span>Khám phá Lớp 11</span>
+              <span class="btn-arrow">↗</span>
+            </button>
+          </div>
+
+          <!-- THẺ 3: LỚP 10 (CLEAN WHITE CARD) -->
+          <div class="mat-card mat-card-clean" data-grade="10" id="card-grade-10">
+            <div class="mat-card-header">
+              <div class="mat-card-badge-top gray-badge">NỀN TẢNG THPT VỮNG VÀNG</div>
+              <h3 class="mat-card-title">Toán Học Lớp 10</h3>
+              <p class="mat-card-subtitle">Xây dựng tư duy logic toán học cấp 3, bất phương trình bậc hai và hệ trục Oxy.</p>
+            </div>
+
+            <div class="mat-card-img-wrap">
+              <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?w=600&auto=format&fit=crop&q=80" alt="Khóa Lớp 10" class="mat-course-img">
+            </div>
+
+            <ul class="mat-feature-list">
+              <li><span class="mat-check">✓</span> <strong>Mệnh đề & Tập hợp:</strong> Tư duy suy luận toán học chặt chẽ.</li>
+              <li><span class="mat-check">✓</span> <strong>Hàm số bậc hai:</strong> Đồ thị Parabol và bất phương trình bậc hai.</li>
+              <li><span class="mat-check">✓</span> <strong>Vectơ & Hệ trục Oxy:</strong> Tọa độ phẳng và hệ thức lượng tam giác.</li>
+            </ul>
+
+            <button type="button" class="mat-btn-action mat-btn-outline">
+              <span>Khám phá Lớp 10</span>
+              <span class="btn-arrow">↗</span>
+            </button>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. TESTIMONIALS (ĐÁNH GIÁ CỦA HỌC SINH) -->
+    <section id="section-testimonials" class="mat-testimonials-section">
+      <div class="mat-container">
+        <div class="mat-section-header">
+          <div class="mat-section-sub">ĐÁNH GIÁ TỪ HỌC VIÊN</div>
+          <h2 class="mat-section-title">Cảm Nhận Từ Những Bạn Đã Chinh Phục Điểm 8+ 9+</h2>
+          <p class="mat-section-desc">Sự tiến bộ thực chất của học sinh là niềm tự hào lớn nhất của chúng tôi.</p>
+        </div>
+
+        <div class="mat-testimonials-grid">
+          <div class="mat-testi-card">
+            <div class="testi-stars">★★★★★</div>
+            <p class="testi-content">
+              "Trước đây em rất sợ phần trắc nghiệm Đúng/Sai và Điền số vì Bộ GD&ĐT đổi cấu trúc mới. Nhờ luyện bộ 7 đề trên hệ thống, em đã quen áp lực thời gian và thi thử Giữa kỳ 1 được 9.2 điểm!"
+            </p>
+            <div class="testi-author">
+              <img src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=100&auto=format&fit=crop&q=80" alt="Trần Bảo Nam" class="testi-avatar">
+              <div>
+                <div class="author-name">Trần Bảo Nam</div>
+                <div class="author-info">Học sinh Lớp 12A1 • THPT Chuyên Hà Nội - Amsterdam</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="mat-testi-card">
+            <div class="testi-stars">★★★★★</div>
+            <p class="testi-content">
+              "Giao diện giải toán KaTeX cực kỳ rõ ràng, không bị rối mắt. Thích nhất là các bài toán thực tế như tối ưu thể tích thùng tôn, nồng độ thuốc hay bài toán hải đăng đều có hình vẽ SVG trực quan."
+            </p>
+            <div class="testi-author">
+              <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?w=100&auto=format&fit=crop&q=80" alt="Nguyễn Thảo Linh" class="testi-avatar">
+              <div>
+                <div class="author-name">Nguyễn Thảo Linh</div>
+                <div class="author-info">Học sinh Lớp 12 Toán • THPT Chu Văn An</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="mat-testi-card">
+            <div class="testi-stars">★★★★★</div>
+            <p class="testi-content">
+              "Không bị quảng cáo làm phiền, có thể xem lại ngay lỗi sai sau khi nộp bài. Thầy giáo giảng rất dễ hiểu và tài liệu bám sát 100% đề thi trên lớp. Rất khuyến khích các bạn 2k7 luyện tập!"
+            </p>
+            <div class="testi-author">
+              <img src="https://images.unsplash.com/photo-1501196354995-cbb51c65aaea?w=100&auto=format&fit=crop&q=80" alt="Lê Hoàng Hải" class="testi-avatar">
+              <div>
+                <div class="author-name">Lê Hoàng Hải</div>
+                <div class="author-info">Học sinh Lớp 11A3 • THPT Lê Hồng Phong</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. INVITE BANNER (CTA BOX VỚI ẢNH NHÓM HỌC SINH) -->
+    <section class="mat-invite-section">
+      <div class="mat-container">
+        <div class="mat-invite-box">
+          <div class="mat-invite-img-col">
+            <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=800&auto=format&fit=crop&q=80" alt="Cùng học toán với bạn bè" class="mat-invite-img">
+          </div>
+          <div class="mat-invite-content-col">
+            <div class="invite-tag">ƯU ĐÃI THÀNH VIÊN</div>
+            <h3 class="invite-title">Bạn Có Người Thân Hoặc Bạn Bè Cùng Ôn Thi Toán?</h3>
+            <p class="invite-desc">
+              Cùng nhau chia sẻ đề thi chuẩn, thi đấu tính giờ và cùng tiến bộ mỗi ngày. Đăng ký tài khoản miễn phí để lưu lịch sử làm bài thi không giới hạn.
+            </p>
+            <button type="button" class="mat-btn-action mat-btn-orange" id="btn-invite-register">
+              <span>Đăng ký tham gia ngay</span>
+              <span class="btn-arrow">➔</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 9. FAQ ACCORDION (NHỮNG CÂU HỎI THƯỜNG GẶP) -->
+    <section id="section-faq" class="mat-faq-section">
+      <div class="mat-container">
+        <div class="mat-section-header text-center">
+          <div class="mat-section-sub">GIẢI ĐÁP THẮC MẮC</div>
+          <h2 class="mat-section-title">Câu Hỏi Thường Gặp Về Hệ Thống</h2>
+          <p class="mat-section-desc">Mọi thông tin bạn cần biết trước khi bước vào ôn luyện môn Toán THPT.</p>
+        </div>
+
+        <div class="mat-faq-accordion">
+          <div class="mat-faq-item">
+            <button type="button" class="mat-faq-question">
+              <span>Tôi có thể làm thử bài thi và ôn chuyên đề miễn phí không?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="mat-faq-answer">
+              <p>Có! Toàn bộ 5 chuyên đề trọng tâm Lớp 12 và Bộ 7 Đề thi thử Giữa HKI chuẩn ma trận 2025 đều mở miễn phí 100% cho mọi học sinh luyện tập trực tiếp trên trình duyệt.</p>
+            </div>
+          </div>
+
+          <div class="mat-faq-item">
+            <button type="button" class="mat-faq-question">
+              <span>Cấu trúc đề thi có đúng ma trận mới của Bộ Giáo dục 2025 không?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="mat-faq-answer">
+              <p>Chính xác 100%. Mỗi đề thi đều có đầy đủ 4 phần: Phần I (12 câu trắc nghiệm 4 lựa chọn), Phần II (4 câu trắc nghiệm Đúng/Sai với thang điểm 0.1 - 0.25 - 0.5 - 1.0), Phần III (6 câu điền số trả lời ngắn) và Phần IV (Tự luận bài toán thực tế có hình vẽ trực quan).</p>
+            </div>
+          </div>
+
+          <div class="mat-faq-item">
+            <button type="button" class="mat-faq-question">
+              <span>Hệ thống có lưu lại lịch sử làm bài và điểm số khi tải lại trang không?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="mat-faq-answer">
+              <p>Hệ thống tự động lưu trữ điểm số, tỷ lệ chính xác và lịch sử luyện tập của bạn vào LocalStorage trên trình duyệt của máy bạn, đảm bảo không bị mất kết quả khi F5 hoặc mở lại sau.</p>
+            </div>
+          </div>
+
+          <div class="mat-faq-item">
+            <button type="button" class="mat-faq-question">
+              <span>Thầy cô giáo có thể thêm đề và chỉnh sửa câu hỏi như thế nào?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="mat-faq-answer">
+              <p>Thầy cô chỉ cần chuyển sang Chế độ Giáo viên trên thanh Menu. Hệ thống sẽ mở khóa công cụ: Thêm câu hỏi mới, Sửa lời giải chi tiết, Thêm đề thi mới và Xuất/Nhập ngân hàng câu hỏi dưới dạng tệp JSON tiện lợi.</p>
+            </div>
+          </div>
+
+          <div class="mat-faq-item">
+            <button type="button" class="mat-faq-question">
+              <span>Tôi có thể học trên điện thoại hoặc máy tính bảng không?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="mat-faq-answer">
+              <p>Trang web được tối ưu hóa hiển thị Responsive trên mọi thiết bị: từ điện thoại iPhone, Android đến máy tính bảng iPad và laptop máy tính để bàn.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 10. CONTACT FORM SECTION (KHUNG LIÊN HỆ & TƯ VẤN) -->
+    <section id="section-contact" class="mat-contact-section">
+      <div class="mat-container mat-contact-grid">
+        <div class="mat-contact-info">
+          <h2 class="contact-title">Bạn Muốn Đăng Ký Học Hoặc Cần Tư Vấn Lộ Trình?</h2>
+          <p class="contact-desc">
+            Để lại thông tin hoặc nhắn tin cho ban chuyên môn để được tư vấn phân tích năng lực và nhận bộ tài liệu chuyên đề miễn phí.
+          </p>
+
+          <div class="contact-details">
+            <div class="detail-item">
+              <span class="detail-icon">📍</span>
+              <div>
+                <strong>Địa chỉ văn phòng chuyên môn</strong>
+                <p>Khu Đô Thị Sư Phạm, Cầu Giấy, Hà Nội</p>
+              </div>
+            </div>
+            <div class="detail-item">
+              <span class="detail-icon">✉️</span>
+              <div>
+                <strong>Email hỗ trợ học tập</strong>
+                <p>hotro.matematica@toan.edu.vn</p>
+              </div>
+            </div>
+            <div class="detail-item">
+              <span class="detail-icon">📞</span>
+              <div>
+                <strong>Hotline giải đáp chuyên môn</strong>
+                <p>0988.123.456 (8h00 - 21h30)</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mat-contact-card">
+          <form id="mat-form-contact" class="mat-form">
+            <div class="form-group">
+              <label>Họ và tên của bạn:</label>
+              <input type="text" id="mat-contact-name" class="form-control" placeholder="Ví dụ: Hoàng Minh Anh" required>
+            </div>
+            <div class="form-group">
+              <label>Số điện thoại / Zalo:</label>
+              <input type="tel" id="mat-contact-phone" class="form-control" placeholder="Ví dụ: 0912345678" required>
+            </div>
+            <div class="form-group">
+              <label>Khối lớp bạn đang quan tâm:</label>
+              <select id="mat-contact-grade" class="form-control">
+                <option value="12">Lớp 12 - Luyện thi Tốt nghiệp THPT & ĐGNL 2025</option>
+                <option value="11">Lớp 11 - Chương trình mới GDPT 2018</option>
+                <option value="10">Lớp 10 - Nền tảng Toán THPT</option>
+                <option value="teacher">Dành cho Giáo viên & Trường học</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Nội dung cần hỗ trợ hoặc câu hỏi:</label>
+              <textarea id="mat-contact-msg" rows="3" class="form-control" placeholder="Chia sẻ với thầy cô về mục tiêu điểm số hoặc phần kiến thức bạn đang gặp khó khăn..."></textarea>
+            </div>
+            <button type="submit" class="mat-btn-action mat-btn-orange w-100">
+              <span>Gửi thông tin tư vấn</span>
+              <span class="btn-arrow">➔</span>
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- 11. FOOTER (MÀU ĐEN SANG TRỌNG THEO MẪU DRIBBBLE) -->
+    <footer class="mat-footer">
+      <div class="mat-container mat-footer-inner">
+        <div class="footer-brand-col">
+          <div class="mat-brand">
+            <div class="mat-brand-logo">∑</div>
+            <span class="mat-brand-title text-white">Matematica</span>
+          </div>
+          <p class="footer-copy-text">
+            Hệ thống học tập, luyện thi và quản trị học liệu môn Toán THPT chuẩn Chương trình Giáo dục Phổ thông 2018.
           </p>
         </div>
-        <div class="bento-stats-pills">
-          <span class="bento-pill">📚 5 Chuyên đề</span>
-          <span class="bento-pill">🎯 4 Dạng bài mới</span>
-          <span class="bento-pill">⏱️ Thi thử 90p</span>
-        </div>
-        <ul class="grade-features-list">
-          <li class="grade-feature-item">
-            <span class="check">✓</span>
-            <span><strong>5 Chuyên đề trọng tâm:</strong> Đơn điệu, Cực trị, GTLN-GTNN, Tiệm cận xiên, Toán thực tế Parabol, Vectơ không gian Oxyz.</span>
-          </li>
-          <li class="grade-feature-item">
-            <span class="check">✓</span>
-            <span><strong>Bộ 7 Đề thi Giữa HKI 2025:</strong> Đề chuẩn ma trận Bộ GD&ĐT (12 MCQ + 4 Đúng/Sai + 6 Điền số + Tự luận).</span>
-          </li>
-          <li class="grade-feature-item">
-            <span class="check">✓</span>
-            <span><strong>Phòng thi thử 90 phút:</strong> Đồng hồ đếm ngược, phân tích lỗi sai và bảng điểm chi tiết.</span>
-          </li>
-          <li class="grade-feature-item">
-            <span class="check">✓</span>
-            <span><strong>Trực quan hóa hình học:</strong> Sơ đồ vector SVG tiệm cận, gập thùng tôn, cân bằng lực 3D.</span>
-          </li>
-        </ul>
-        <button type="button" class="grade-cta-btn primary-bento">
-          <span>Bắt đầu học Lớp 12</span>
-          <span class="btn-arrow">➔</span>
-        </button>
-      </div>
 
-      <!-- LỚP 11 (BENTO CARD MINT / SAGE) -->
-      <div class="grade-card bento-card bento-secondary mint-theme" data-grade="11" id="card-grade-11">
-        <div class="grade-card-top">
-          <div class="grade-card-icon-wrap warm-mint">
-            <span class="icon-sticker">〰️</span>
-          </div>
-          <span class="grade-badge-preview">Chương trình mới</span>
+        <div class="footer-links-col">
+          <a href="#section-hero">Trang chủ</a>
+          <a href="#section-grades">Lớp 12</a>
+          <a href="#section-grades">Lớp 11</a>
+          <a href="#section-grades">Lớp 10</a>
+          <a href="#section-compare">So sánh</a>
+          <a href="#section-faq">Hỏi đáp</a>
         </div>
-        <div class="bento-header-content">
-          <div class="bento-level-tag">Chương Trình Chuyển Tiếp</div>
-          <h2 class="grade-card-title">Toán Học Lớp 11</h2>
-          <p class="grade-card-subtitle">
-            Hàm số lượng giác, dãy số cấp số, giới hạn và quan hệ không gian vuông góc
-          </p>
-        </div>
-        <div class="bento-stats-pills">
-          <span class="bento-pill">🎯 4 Chuyên đề</span>
-          <span class="bento-pill">📐 Hình học KG</span>
-        </div>
-        <ul class="grade-features-list">
-          <li class="grade-feature-item">
-            <span class="check">✓</span>
-            <span><strong>Chuyên đề 1:</strong> Hàm số & Phương trình lượng giác.</span>
-          </li>
-          <li class="grade-feature-item">
-            <span class="check">✓</span>
-            <span><strong>Chuyên đề 2:</strong> Dãy số, Cấp số cộng & Cấp số nhân.</span>
-          </li>
-          <li class="grade-feature-item">
-            <span class="check">✓</span>
-            <span><strong>Chuyên đề 3:</strong> Giới hạn dãy số & Hàm số liên tục.</span>
-          </li>
-          <li class="grade-feature-item">
-            <span class="check">✓</span>
-            <span><strong>Chuyên đề 4:</strong> Đạo hàm & Hình không gian vuông góc.</span>
-          </li>
-        </ul>
-        <button type="button" class="grade-cta-btn outline-bento">
-          <span>Khám phá Lớp 11</span>
-          <span class="btn-arrow">➔</span>
-        </button>
-      </div>
 
-      <!-- LỚP 10 (BENTO CARD HONEY / AMBER) -->
-      <div class="grade-card bento-card bento-secondary honey-theme" data-grade="10" id="card-grade-10">
-        <div class="grade-card-top">
-          <div class="grade-card-icon-wrap warm-honey">
-            <span class="icon-sticker">🎯</span>
-          </div>
-          <span class="grade-badge-preview">Nền tảng THPT</span>
+        <div class="footer-bottom-row">
+          <span>© 2026 Matematica Online. Bản quyền thuộc về Hệ thống Luyện thi Toán THPT.</span>
         </div>
-        <div class="bento-header-content">
-          <div class="bento-level-tag">Khởi Đầu Vững Chắc</div>
-          <h2 class="grade-card-title">Toán Học Lớp 10</h2>
-          <p class="grade-card-subtitle">
-            Xây dựng nền tảng tư duy toán học THPT, mệnh đề tập hợp và vectơ tọa độ Oxy
-          </p>
-        </div>
-        <div class="bento-stats-pills">
-          <span class="bento-pill">💡 Mệnh đề & Tập hợp</span>
-          <span class="bento-pill">📍 Hệ trục Oxy</span>
-        </div>
-        <ul class="grade-features-list">
-          <li class="grade-feature-item">
-            <span class="check">✓</span>
-            <span><strong>Chuyên đề 1:</strong> Mệnh đề toán học & Tập hợp số thực.</span>
-          </li>
-          <li class="grade-feature-item">
-            <span class="check">✓</span>
-            <span><strong>Chuyên đề 2:</strong> Bất phương trình & Hệ BPT bậc nhất hai ẩn.</span>
-          </li>
-          <li class="grade-feature-item">
-            <span class="check">✓</span>
-            <span><strong>Chuyên đề 3:</strong> Hàm số bậc hai & đồ thị Parabol.</span>
-          </li>
-          <li class="grade-feature-item">
-            <span class="check">✓</span>
-            <span><strong>Chuyên đề 4:</strong> Hệ thức lượng & Vectơ mặt phẳng Oxy.</span>
-          </li>
-        </ul>
-        <button type="button" class="grade-cta-btn outline-bento">
-          <span>Khám phá Lớp 10</span>
-          <span class="btn-arrow">➔</span>
-        </button>
       </div>
+    </footer>
 
-    </div>
-
-    <!-- Trust & Quality Highlights -->
-    <div class="landing-footer-trust">
-      <div class="trust-item">
-        <span class="icon-badge">🏛️</span>
-        <span>Chuẩn cấu trúc 3 phần Bộ GD&ĐT 2025</span>
-      </div>
-      <div class="trust-item">
-        <span class="icon-badge">📐</span>
-        <span>Công thức KaTeX chuẩn mực & Đồ thị SVG</span>
-      </div>
-      <div class="trust-item">
-        <span class="icon-badge">⏱️</span>
-        <span>Phòng thi trực tuyến tính giờ & Bảng điểm</span>
-      </div>
-      <div class="trust-item">
-        <span class="icon-badge">💾</span>
-        <span>Lưu tiến độ học tập trên trình duyệt</span>
-      </div>
-    </div>
   </section>
 
   <!-- =========================================================================

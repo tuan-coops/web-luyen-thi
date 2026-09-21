@@ -3409,12 +3409,71 @@
     });
 
     // 1. Màn hình 1 (Chọn khối lớp): Click vào thẻ khối lớp -> Chuyển sang Màn hình 2 (Chọn hình thức)
-    document.querySelectorAll('.grade-card').forEach(card => {
-      card.addEventListener('click', function() {
+    document.querySelectorAll('.grade-card, .mat-card').forEach(card => {
+      card.addEventListener('click', function(e) {
         const gradeId = this.dataset.grade;
-        AppRouter.push(`/lop-${gradeId}`);
+        if (gradeId) {
+          AppRouter.push(`/lop-${gradeId}`);
+        }
       });
     });
+
+    // Các nút bấm chuyển nhanh trên Hero Landing (Pill Buttons)
+    document.querySelectorAll('.mat-pill-btn').forEach(btn => {
+      btn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        document.querySelectorAll('.mat-pill-btn').forEach(b => b.classList.remove('active'));
+        this.classList.add('active');
+        const gradeId = this.dataset.grade;
+        if (gradeId) {
+          const targetCard = document.getElementById(`card-grade-${gradeId}`);
+          if (targetCard) {
+            targetCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          }
+        }
+      });
+    });
+
+    // Logo trên Header Landing
+    const btnBrandLanding = document.getElementById('btn-brand-landing-top');
+    if (btnBrandLanding) {
+      btnBrandLanding.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    }
+
+    // Nút tham gia ngay trên Invite Banner
+    const btnInviteReg = document.getElementById('btn-invite-register');
+    if (btnInviteReg) {
+      btnInviteReg.addEventListener('click', () => {
+        AppRouter.push('/login');
+      });
+    }
+
+    // FAQ Accordion Interactivity
+    document.querySelectorAll('.mat-faq-item').forEach(item => {
+      const qBtn = item.querySelector('.mat-faq-question');
+      if (qBtn) {
+        qBtn.addEventListener('click', () => {
+          const isActive = item.classList.contains('active');
+          document.querySelectorAll('.mat-faq-item').forEach(el => el.classList.remove('active'));
+          if (!isActive) {
+            item.classList.add('active');
+          }
+        });
+      }
+    });
+
+    // Contact Consultation Form Submit
+    const contactForm = document.getElementById('mat-form-contact');
+    if (contactForm) {
+      contactForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const name = document.getElementById('mat-contact-name')?.value || '';
+        showToast(`Cảm ơn bạn ${name}! Ban chuyên môn sẽ liên hệ tư vấn lộ trình học Toán sớm nhất 🎉`);
+        contactForm.reset();
+      });
+    }
 
     // 2. Màn hình 2 (Chọn hình thức): Click vào Ôn theo chuyên đề hoặc Luyện thi
     const cardTopics = document.getElementById('card-action-topics');
