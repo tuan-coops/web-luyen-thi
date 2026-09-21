@@ -3409,51 +3409,11 @@
     });
 
     // 1. Màn hình 1 (Chọn khối lớp): Click vào thẻ khối lớp -> Chuyển sang Màn hình 2 (Chọn hình thức)
-    document.querySelectorAll('.grade-card, .mat-card').forEach(card => {
-      card.addEventListener('click', function(e) {
+    document.querySelectorAll('.grade-card').forEach(card => {
+      card.addEventListener('click', function() {
         const gradeId = this.dataset.grade;
-        if (gradeId) {
-          AppRouter.push(`/lop-${gradeId}`);
-        }
+        AppRouter.push(`/lop-${gradeId}`);
       });
-    });
-
-    // Các nút bấm chuyển nhanh trên Hero Landing (Pill Buttons)
-    document.querySelectorAll('.mat-pill-btn').forEach(btn => {
-      btn.addEventListener('click', function(e) {
-        e.stopPropagation();
-        document.querySelectorAll('.mat-pill-btn').forEach(b => b.classList.remove('active'));
-        this.classList.add('active');
-        const gradeId = this.dataset.grade;
-        if (gradeId) {
-          const targetCard = document.getElementById(`card-grade-${gradeId}`);
-          if (targetCard) {
-            targetCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
-          }
-        }
-      });
-    });
-
-    // Logo trên Header Landing
-    const btnBrandLanding = document.getElementById('btn-brand-landing-top');
-    if (btnBrandLanding) {
-      btnBrandLanding.addEventListener('click', () => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      });
-    }
-
-    // FAQ Accordion Interactivity
-    document.querySelectorAll('.mat-faq-item').forEach(item => {
-      const qBtn = item.querySelector('.mat-faq-question');
-      if (qBtn) {
-        qBtn.addEventListener('click', () => {
-          const isActive = item.classList.contains('active');
-          document.querySelectorAll('.mat-faq-item').forEach(el => el.classList.remove('active'));
-          if (!isActive) {
-            item.classList.add('active');
-          }
-        });
-      }
     });
 
     // 2. Màn hình 2 (Chọn hình thức): Click vào Ôn theo chuyên đề hoặc Luyện thi
