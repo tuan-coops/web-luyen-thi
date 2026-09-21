@@ -1199,13 +1199,13 @@
       const cleanPass = (password || '').trim();
 
       if (!cleanId || !cleanPass) {
-        showToast("Vui lòng nhập tên đăng nhập và mật khẩu!", "danger");
+        showToast("Vui lòng nhập tên tài khoản và mật khẩu!", "danger");
         return false;
       }
 
-      // 1. Kiểm tra tài khoản mẫu demo
+      // 1. Kiểm tra tài khoản mẫu demo (hocsinh hoặc giaovien)
       let matched = this.demoAccounts.find(a =>
-        (a.email.toLowerCase() === cleanId || a.username.toLowerCase() === cleanId) &&
+        (a.username.toLowerCase() === cleanId || a.email.toLowerCase() === cleanId) &&
         (a.password === cleanPass || cleanPass === '123' || cleanPass === '123456')
       );
 
@@ -1213,16 +1213,15 @@
       if (!matched) {
         const registered = this.getRegisteredAccounts();
         matched = registered.find(a =>
-          (a.email.toLowerCase() === cleanId || a.username.toLowerCase() === cleanId) &&
+          (a.username.toLowerCase() === cleanId || a.email.toLowerCase() === cleanId) &&
           a.password === cleanPass
         );
       }
 
-      // 3. Fallback chấp nhận tài khoản mới nếu chưa có
+      // 3. Nếu chưa đăng ký, hỗ trợ đăng nhập trực tiếp (tự động tạo phiên)
       if (!matched) {
         matched = {
-          name: cleanId.includes('@') ? cleanId.split('@')[0] : cleanId,
-          email: cleanId,
+          name: cleanId,
           username: cleanId,
           role: role || 'student',
           avatar: (role === 'teacher') ? '👨‍🏫' : '👨‍🎓'
@@ -1230,9 +1229,8 @@
       }
 
       const userSession = {
-        name: matched.name,
-        email: matched.email,
-        username: matched.username,
+        name: matched.name || matched.username || cleanId,
+        username: matched.username || cleanId,
         role: matched.role || role || 'student',
         avatar: matched.avatar || (matched.role === 'teacher' ? '👨‍🏫' : '👨‍🎓'),
         loginAt: new Date().toISOString()
@@ -1248,33 +1246,32 @@
 
     quickLogin: function(role) {
       const demo = this.demoAccounts.find(a => a.role === role) || this.demoAccounts[0];
-      return this.login(demo.email, demo.password, role);
+      return this.login(demo.username, demo.password, role);
     },
 
     register: function(name, username, password, role) {
-      const cleanName = (name || '').trim();
       const cleanUser = (username || '').trim().toLowerCase();
       const cleanPass = (password || '').trim();
+      const cleanName = (name || '').trim() || cleanUser;
 
-      if (!cleanName || !cleanUser || !cleanPass) {
-        showToast("Vui lòng điền đầy đủ các thông tin đăng ký!", "danger");
+      if (!cleanUser || !cleanPass) {
+        showToast("Vui lòng nhập tên tài khoản và mật khẩu!", "danger");
         return false;
       }
 
-      if (cleanPass.length < 6) {
-        showToast("Mật khẩu cần tối thiểu 6 ký tự!", "danger");
+      if (cleanPass.length < 3) {
+        showToast("Mật khẩu cần tối thiểu 3 ký tự!", "danger");
         return false;
       }
 
       const registered = this.getRegisteredAccounts();
-      if (registered.some(a => a.username === cleanUser || a.email === cleanUser)) {
-        showToast("Tên đăng nhập hoặc email này đã tồn tại!", "danger");
+      if (registered.some(a => a.username === cleanUser)) {
+        showToast("Tên tài khoản này đã tồn tại! Vui lòng chọn tên khác hoặc Đăng nhập.", "danger");
         return false;
       }
 
       const newAcc = {
         name: cleanName,
-        email: cleanUser.includes('@') ? cleanUser : `${cleanUser}@toan.edu.vn`,
         username: cleanUser,
         password: cleanPass,
         role: role || 'student',
@@ -3345,14 +3342,14 @@
 
     // 1-Click Demo Accounts
     document.getElementById('btn-quick-login-student')?.addEventListener('click', () => {
-      const ok = authManager.login('hocsinh@toan.edu.vn', '123456');
+      const ok = authManager.login('hocsinh', '123');
       if (ok) {
         AppRouter.push('/lop-12');
       }
     });
 
     document.getElementById('btn-quick-login-teacher')?.addEventListener('click', () => {
-      const ok = authManager.login('giaovien@toan.edu.vn', '123456');
+      const ok = authManager.login('giaovien', '123');
       if (ok) {
         AppRouter.push('/lop-12');
       }

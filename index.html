@@ -61,21 +61,21 @@
               <span class="demo-avatar">👨‍🎓</span>
               <div class="demo-info">
                 <strong>Vào nhanh: Học sinh</strong>
-                <small>Nguyễn Văn An • Luyện đề & xem điểm</small>
+                <small>Tài khoản: hocsinh • Mật khẩu: 123</small>
               </div>
             </button>
             <button type="button" class="btn-demo-account teacher" id="btn-quick-login-teacher">
               <span class="demo-avatar">👨‍🏫</span>
               <div class="demo-info">
                 <strong>Vào nhanh: Giáo viên</strong>
-                <small>Thầy Nguyễn Văn Toàn • Quản trị & sửa học liệu</small>
+                <small>Tài khoản: giaovien • Mật khẩu: 123</small>
               </div>
             </button>
           </div>
         </div>
 
         <div class="auth-divider">
-          <span>hoặc nhập tài khoản cá nhân</span>
+          <span>hoặc nhập tài khoản & mật khẩu</span>
         </div>
 
         <!-- Auth Tabs: Login vs Register -->
@@ -87,12 +87,12 @@
         <!-- Form 1: Đăng Nhập -->
         <form id="form-login" class="auth-form active">
           <div class="auth-field-group">
-            <label class="auth-label">Email hoặc Tên đăng nhập</label>
-            <input type="text" id="input-login-user" class="auth-input" placeholder="hocsinh@toan.edu.vn hoặc tên của bạn..." required>
+            <label class="auth-label">Tên tài khoản</label>
+            <input type="text" id="input-login-user" class="auth-input" placeholder="Nhập tên tài khoản của bạn (ví dụ: hocsinh, minhanh)..." required autocomplete="username">
           </div>
           <div class="auth-field-group">
             <label class="auth-label">Mật khẩu</label>
-            <input type="password" id="input-login-pass" class="auth-input" placeholder="Mật khẩu (mặc định demo: 123456)" required>
+            <input type="password" id="input-login-pass" class="auth-input" placeholder="Nhập mật khẩu..." required autocomplete="current-password">
           </div>
           <div class="auth-field-group">
             <label class="auth-label">Vai trò đăng nhập:</label>
@@ -115,16 +115,16 @@
         <!-- Form 2: Đăng Ký -->
         <form id="form-register" class="auth-form" style="display: none;">
           <div class="auth-field-group">
-            <label class="auth-label">Họ và tên đầy đủ</label>
-            <input type="text" id="input-reg-name" class="auth-input" placeholder="Ví dụ: Trần Minh Đức" required>
-          </div>
-          <div class="auth-field-group">
-            <label class="auth-label">Email hoặc Tên đăng nhập</label>
-            <input type="text" id="input-reg-user" class="auth-input" placeholder="minhduc@gmail.com..." required>
+            <label class="auth-label">Tên tài khoản (viết liền không dấu)</label>
+            <input type="text" id="input-reg-user" class="auth-input" placeholder="Ví dụ: nguyenvana, toanthaynam..." required autocomplete="username">
           </div>
           <div class="auth-field-group">
             <label class="auth-label">Mật khẩu</label>
-            <input type="password" id="input-reg-pass" class="auth-input" placeholder="Tối thiểu 6 ký tự..." required>
+            <input type="password" id="input-reg-pass" class="auth-input" placeholder="Tối thiểu 3 ký tự..." required autocomplete="new-password">
+          </div>
+          <div class="auth-field-group">
+            <label class="auth-label">Tên hiển thị (Tùy chọn)</label>
+            <input type="text" id="input-reg-name" class="auth-input" placeholder="Ví dụ: Nguyễn Văn An, Thầy Nam...">
           </div>
           <div class="auth-field-group">
             <label class="auth-label">Vai trò của bạn:</label>

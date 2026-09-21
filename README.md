@@ -47,18 +47,18 @@ Trang web sở hữu hệ thống xác thực người dùng hoàn chỉnh với
 ### 1. Nút Đăng nhập Nhanh 1 Cú Nhấp Chuột (1-Click Demo Accounts)
 Trên màn hình `/login`, người dùng có thể nhấp ngay vào một trong 2 tài khoản mẫu đã tạo sẵn để trải nghiệm ngay lập tức:
 * **👨‍🎓 Học sinh mẫu:**
-  - Email: `hocsinh@toan.edu.vn`
-  - Mật khẩu: `123456`
-  - Tên hiển thị: **Nguyễn Văn An**
+  - Tài khoản: `hocsinh`
+  - Mật khẩu: `123`
   - Trải nghiệm: Giao diện học tập tập trung, sạch sẽ, làm bài thi, lưu điểm cá nhân.
 * **👨‍🏫 Giáo viên mẫu:**
-  - Email: `giaovien@toan.edu.vn`
-  - Mật khẩu: `123456`
-  - Tên hiển thị: **Thầy Nguyễn Văn Toàn**
+  - Tài khoản: `giaovien`
+  - Mật khẩu: `123`
   - Trải nghiệm: Mở khóa thanh công cụ giáo viên, quyền thêm đề, sửa lý thuyết, thêm/sửa/xóa câu hỏi, xuất/nhập tệp JSON.
 
-### 2. Đăng ký Tài khoản Mới
-Người dùng có thể tạo tài khoản mới với vai trò Học sinh hoặc Giáo viên. Mọi tài khoản và phiên đăng nhập được lưu trữ an toàn trong `localStorage` của trình duyệt.
+### 2. Đăng ký & Đăng nhập bằng Tài khoản & Mật khẩu
+- Không cần email phức tạp: Người dùng chỉ cần đăng ký bằng **Tên tài khoản** và **Mật khẩu** (tối thiểu 3 ký tự).
+- Hỗ trợ chọn vai trò: **👨‍🎓 Học sinh** hoặc **👨‍🏫 Giáo viên**.
+- Mọi tài khoản và phiên đăng nhập được lưu trữ an toàn trong `localStorage` của trình duyệt.
 
 ### 3. Widget Người dùng trên Header
 Trên thanh điều hướng của tất cả các màn hình:
