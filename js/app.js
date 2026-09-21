@@ -3442,14 +3442,6 @@
       });
     }
 
-    // Nút tham gia ngay trên Invite Banner
-    const btnInviteReg = document.getElementById('btn-invite-register');
-    if (btnInviteReg) {
-      btnInviteReg.addEventListener('click', () => {
-        AppRouter.push('/login');
-      });
-    }
-
     // FAQ Accordion Interactivity
     document.querySelectorAll('.mat-faq-item').forEach(item => {
       const qBtn = item.querySelector('.mat-faq-question');
@@ -3463,17 +3455,6 @@
         });
       }
     });
-
-    // Contact Consultation Form Submit
-    const contactForm = document.getElementById('mat-form-contact');
-    if (contactForm) {
-      contactForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        const name = document.getElementById('mat-contact-name')?.value || '';
-        showToast(`Cảm ơn bạn ${name}! Ban chuyên môn sẽ liên hệ tư vấn lộ trình học Toán sớm nhất 🎉`);
-        contactForm.reset();
-      });
-    }
 
     // 2. Màn hình 2 (Chọn hình thức): Click vào Ôn theo chuyên đề hoặc Luyện thi
     const cardTopics = document.getElementById('card-action-topics');
