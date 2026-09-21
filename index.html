@@ -5,10 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>Cổng Luyện Tập & Đề Thi Toán Học THPT (Lớp 10 - 11 - 12)</title>
 
-  <!-- Google Fonts: Inter & Lexend -->
+  <!-- Google Fonts: Plus Jakarta Sans, Lexend, Caveat -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Lexend:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Lexend:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
   <!-- KaTeX for High Quality Math Typography -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
@@ -27,10 +27,10 @@
     <!-- Top Header of Login Screen -->
     <div class="landing-header">
       <div class="brand-section" id="btn-brand-login-back" style="cursor: pointer;" title="Về trang chọn khối lớp">
-        <div class="brand-logo">∑</div>
+        <div class="brand-logo">∑ <span class="heart-pulse">♡</span></div>
         <div>
-          <span class="brand-title">TOÁN HỌC TRỰC TUYẾN</span>
-          <span class="brand-badge">GDPT 2018</span>
+          <span class="brand-title">MATEMATICA</span>
+          <span class="brand-badge">Math with a Heart</span>
         </div>
       </div>
       <div class="header-actions">
@@ -155,10 +155,10 @@
     <!-- Header of Landing -->
     <div class="landing-header">
       <div class="brand-section">
-        <div class="brand-logo">∑</div>
+        <div class="brand-logo">∑ <span class="heart-pulse">♡</span></div>
         <div>
-          <span class="brand-title">TOÁN HỌC TRỰC TUYẾN</span>
-          <span class="brand-badge">GDPT 2018</span>
+          <span class="brand-title">MATEMATICA</span>
+          <span class="brand-badge">Math with a Heart</span>
         </div>
       </div>
       <div class="header-actions">
@@ -178,140 +178,175 @@
     <!-- Hero Announcement -->
     <div class="landing-hero">
       <div class="landing-pill">
-        <span>✨</span> CHƯƠNG TRÌNH GIÁO DỤC PHỔ THÔNG 2018
+        <span class="heart-pulse">♡</span> MATEMATICA • A MATH SCHOOL WITH A HEART
       </div>
       <h1 class="landing-title">
-        Hệ Thống Luyện Tập & Đề Thi <span>Môn Toán THPT</span>
+        Khám Phá Vẻ Đẹp Toán Học <span>Bằng Cả Trái Tim</span>
       </h1>
       <p class="landing-desc">
-        Học liệu bám sát 100% định dạng đề thi mới của Bộ Giáo dục & Đào tạo. Tích hợp trắc nghiệm 4 lựa chọn, đúng/sai, trả lời ngắn, tự luận thực tế và phòng thi thử 90 phút.
+        Nền tảng học và luyện thi Toán THPT chuẩn chương trình GDPT 2018 mới nhất. Biến những công thức khô khan thành hành trình khám phá đầy cảm hứng, gần gũi và ấm áp.
       </p>
+      <div class="landing-hero-doodle">
+        <span class="doodle-text">"Toán học không chỉ là những con số, mà là cách chúng ta thấu hiểu thế giới!" ✨</span>
+      </div>
     </div>
 
-    <!-- 3 Interactive Grade Selection Cards -->
-    <div class="grade-cards-grid">
+    <!-- 3 Interactive Grade Selection Cards (Bento Grid Style) -->
+    <div class="grade-cards-grid bento-grid">
 
-      <!-- LỚP 12 (NỔI BẬT) -->
-      <div class="grade-card featured" data-grade="12" id="card-grade-12">
+      <!-- LỚP 12 (HERO BENTO CARD - NHẤN MẠNH TRỌNG TÂM) -->
+      <div class="grade-card bento-card bento-featured" data-grade="12" id="card-grade-12">
+        <div class="bento-blob-shape"></div>
         <div class="grade-card-top">
-          <div class="grade-card-icon">📈</div>
-          <span class="grade-badge-hot">🔥 ĐẦY ĐỦ 100%</span>
+          <div class="grade-card-icon-wrap warm-coral">
+            <span class="icon-sticker">📈</span>
+          </div>
+          <div class="bento-badges-row">
+            <span class="grade-badge-hot">🔥 ĐẦY ĐỦ 100%</span>
+            <span class="grade-badge-sticker">Bộ 7 Đề 2025</span>
+          </div>
         </div>
-        <h2 class="grade-card-title">Toán Học Lớp 12</h2>
-        <p class="grade-card-subtitle">
-          Chương trình GDPT 2018 & Luyện thi Tốt nghiệp THPT / Đánh giá năng lực 2025
-        </p>
+        <div class="bento-header-content">
+          <div class="bento-level-tag">Lớp Tốt Nghiệp THPT</div>
+          <h2 class="grade-card-title">Toán Học Lớp 12</h2>
+          <p class="grade-card-subtitle">
+            Hành trang chinh phục kỳ thi Tốt nghiệp THPT & Đánh giá năng lực 2025 chuẩn ma trận GDPT 2018
+          </p>
+        </div>
+        <div class="bento-stats-pills">
+          <span class="bento-pill">📚 5 Chuyên đề</span>
+          <span class="bento-pill">🎯 4 Dạng bài mới</span>
+          <span class="bento-pill">⏱️ Thi thử 90p</span>
+        </div>
         <ul class="grade-features-list">
           <li class="grade-feature-item">
-            <span class="check">✓</span>
+            <span class="check-heart">♡</span>
             <span><strong>5 Chuyên đề trọng tâm:</strong> Đơn điệu, Cực trị, GTLN-GTNN, Tiệm cận xiên, Toán thực tế Parabol, Vectơ không gian Oxyz.</span>
           </li>
           <li class="grade-feature-item">
-            <span class="check">✓</span>
+            <span class="check-heart">♡</span>
             <span><strong>Bộ 7 Đề thi Giữa HKI 2025:</strong> Đề chuẩn ma trận Bộ GD&ĐT (12 MCQ + 4 Đúng/Sai + 6 Điền số + Tự luận).</span>
           </li>
           <li class="grade-feature-item">
-            <span class="check">✓</span>
-            <span><strong>Phòng thi thử 90 phút:</strong> Đồng hồ đếm ngược, chấm điểm thang 10 chuẩn và phân tích lỗi sai.</span>
+            <span class="check-heart">♡</span>
+            <span><strong>Phòng thi thử 90 phút:</strong> Đồng hồ đếm ngược, phân tích lỗi sai và bảng điểm chi tiết.</span>
           </li>
           <li class="grade-feature-item">
-            <span class="check">✓</span>
+            <span class="check-heart">♡</span>
             <span><strong>Trực quan hóa hình học:</strong> Sơ đồ vector SVG tiệm cận, gập thùng tôn, cân bằng lực 3D.</span>
           </li>
         </ul>
-        <button type="button" class="grade-cta-btn primary">
+        <button type="button" class="grade-cta-btn primary-bento">
           <span>Bắt đầu học Lớp 12</span>
-          <span>🚀</span>
+          <span class="btn-arrow">➔</span>
         </button>
       </div>
 
-      <!-- LỚP 11 -->
-      <div class="grade-card" data-grade="11" id="card-grade-11">
+      <!-- LỚP 11 (BENTO CARD MINT / WARM SAGE) -->
+      <div class="grade-card bento-card bento-secondary mint-theme" data-grade="11" id="card-grade-11">
         <div class="grade-card-top">
-          <div class="grade-card-icon">〰️</div>
+          <div class="grade-card-icon-wrap warm-mint">
+            <span class="icon-sticker">〰️</span>
+          </div>
           <span class="grade-badge-preview">Chương trình mới</span>
         </div>
-        <h2 class="grade-card-title">Toán Học Lớp 11</h2>
-        <p class="grade-card-subtitle">
-          Chương trình GDPT 2018 (SGK Kết nối tri thức, Cánh Diều, Chân Trời Sáng Tạo)
-        </p>
+        <div class="bento-header-content">
+          <div class="bento-level-tag">Chương Trình Chuyển Tiếp</div>
+          <h2 class="grade-card-title">Toán Học Lớp 11</h2>
+          <p class="grade-card-subtitle">
+            Hàm số lượng giác, dãy số cấp số, giới hạn và quan hệ không gian vuông góc
+          </p>
+        </div>
+        <div class="bento-stats-pills">
+          <span class="bento-pill">🎯 4 Chuyên đề</span>
+          <span class="bento-pill">📐 Hình học KG</span>
+        </div>
         <ul class="grade-features-list">
           <li class="grade-feature-item">
-            <span class="check">✓</span>
-            <span><strong>Chuyên đề 1:</strong> Hàm số lượng giác & Phương trình lượng giác.</span>
+            <span class="check-heart">♡</span>
+            <span><strong>Chuyên đề 1:</strong> Hàm số & Phương trình lượng giác.</span>
           </li>
           <li class="grade-feature-item">
-            <span class="check">✓</span>
+            <span class="check-heart">♡</span>
             <span><strong>Chuyên đề 2:</strong> Dãy số, Cấp số cộng & Cấp số nhân.</span>
           </li>
           <li class="grade-feature-item">
-            <span class="check">✓</span>
+            <span class="check-heart">♡</span>
             <span><strong>Chuyên đề 3:</strong> Giới hạn dãy số & Hàm số liên tục.</span>
           </li>
           <li class="grade-feature-item">
-            <span class="check">✓</span>
-            <span><strong>Chuyên đề 4:</strong> Đạo hàm, tiếp tuyến & Hình học không gian quan hệ song song, vuông góc.</span>
+            <span class="check-heart">♡</span>
+            <span><strong>Chuyên đề 4:</strong> Đạo hàm & Hình không gian vuông góc.</span>
           </li>
         </ul>
-        <button type="button" class="grade-cta-btn secondary">
+        <button type="button" class="grade-cta-btn outline-bento">
           <span>Khám phá Lớp 11</span>
-          <span>📖</span>
+          <span class="btn-arrow">➔</span>
         </button>
       </div>
 
-      <!-- LỚP 10 -->
-      <div class="grade-card" data-grade="10" id="card-grade-10">
+      <!-- LỚP 10 (BENTO CARD HONEY / WARM AMBER) -->
+      <div class="grade-card bento-card bento-secondary honey-theme" data-grade="10" id="card-grade-10">
         <div class="grade-card-top">
-          <div class="grade-card-icon">🎯</div>
+          <div class="grade-card-icon-wrap warm-honey">
+            <span class="icon-sticker">🎯</span>
+          </div>
           <span class="grade-badge-preview">Nền tảng THPT</span>
         </div>
-        <h2 class="grade-card-title">Toán Học Lớp 10</h2>
-        <p class="grade-card-subtitle">
-          Xây dựng nền tảng tư duy toán học THPT & Kỹ năng giải toán trắc nghiệm
-        </p>
+        <div class="bento-header-content">
+          <div class="bento-level-tag">Khởi Đầu Vững Chắc</div>
+          <h2 class="grade-card-title">Toán Học Lớp 10</h2>
+          <p class="grade-card-subtitle">
+            Xây dựng nền tảng tư duy toán học THPT, mệnh đề tập hợp và vectơ tọa độ Oxy
+          </p>
+        </div>
+        <div class="bento-stats-pills">
+          <span class="bento-pill">💡 Mệnh đề & Tập hợp</span>
+          <span class="bento-pill">📍 Hệ trục Oxy</span>
+        </div>
         <ul class="grade-features-list">
           <li class="grade-feature-item">
-            <span class="check">✓</span>
+            <span class="check-heart">♡</span>
             <span><strong>Chuyên đề 1:</strong> Mệnh đề toán học & Tập hợp số thực.</span>
           </li>
           <li class="grade-feature-item">
-            <span class="check">✓</span>
+            <span class="check-heart">♡</span>
             <span><strong>Chuyên đề 2:</strong> Bất phương trình & Hệ BPT bậc nhất hai ẩn.</span>
           </li>
           <li class="grade-feature-item">
-            <span class="check">✓</span>
-            <span><strong>Chuyên đề 3:</strong> Hàm số bậc hai, tam thức bậc hai & đồ thị Parabol.</span>
+            <span class="check-heart">♡</span>
+            <span><strong>Chuyên đề 3:</strong> Hàm số bậc hai & đồ thị Parabol.</span>
           </li>
           <li class="grade-feature-item">
-            <span class="check">✓</span>
-            <span><strong>Chuyên đề 4:</strong> Hệ thức lượng trong tam giác & Vectơ trong mặt phẳng Oxy.</span>
+            <span class="check-heart">♡</span>
+            <span><strong>Chuyên đề 4:</strong> Hệ thức lượng & Vectơ mặt phẳng Oxy.</span>
           </li>
         </ul>
-        <button type="button" class="grade-cta-btn secondary">
+        <button type="button" class="grade-cta-btn outline-bento">
           <span>Khám phá Lớp 10</span>
-          <span>📖</span>
+          <span class="btn-arrow">➔</span>
         </button>
       </div>
 
     </div>
 
-    <!-- Trust & Quality Highlights -->
+    <!-- Trust & Quality Highlights (Warm stickers) -->
     <div class="landing-footer-trust">
       <div class="trust-item">
-        <span class="icon">🏛️</span>
+        <span class="icon-badge">🏛️</span>
         <span>Chuẩn cấu trúc 3 phần Bộ GD&ĐT 2025</span>
       </div>
       <div class="trust-item">
-        <span class="icon">📐</span>
+        <span class="icon-badge">📐</span>
         <span>Công thức KaTeX chuẩn mực & Đồ thị SVG</span>
       </div>
       <div class="trust-item">
-        <span class="icon">⏱️</span>
+        <span class="icon-badge">⏱️</span>
         <span>Phòng thi trực tuyến tính giờ & Bảng điểm</span>
       </div>
       <div class="trust-item">
-        <span class="icon">💾</span>
-        <span>Lưu tiến độ học tập trên trình duyệt</span>
+        <span class="icon-badge">♡</span>
+        <span>Học tập với niềm vui & cảm hứng</span>
       </div>
     </div>
   </section>
@@ -323,10 +358,10 @@
     <!-- Top Header of Mode Selection -->
     <div class="mode-landing-header">
       <div class="brand-section" id="btn-brand-mode-hub" style="cursor: pointer;" title="Về trang chọn khối lớp">
-        <div class="brand-logo">∑</div>
+        <div class="brand-logo">∑ <span class="heart-pulse">♡</span></div>
         <div>
-          <span class="brand-title">TOÁN HỌC TRỰC TUYẾN</span>
-          <span class="brand-badge">GDPT 2018</span>
+          <span class="brand-title">MATEMATICA</span>
+          <span class="brand-badge">Math with a Heart</span>
         </div>
       </div>
       <div style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
@@ -416,10 +451,10 @@
 
         <!-- Brand / Logo (Bấm để quay lại chọn lớp) -->
         <div class="brand-section" id="btn-brand-home" title="Về trang chọn khối lớp" style="cursor: pointer;">
-          <div class="brand-logo">∑</div>
+          <div class="brand-logo">∑ <span class="heart-pulse">♡</span></div>
           <div>
-            <span class="brand-title">TOÁN HỌC TRỰC TUYẾN</span>
-            <span class="brand-badge">GDPT 2018</span>
+            <span class="brand-title">MATEMATICA</span>
+            <span class="brand-badge">Math with a Heart</span>
           </div>
         </div>
 
