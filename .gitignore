@@ -1,0 +1,10 @@
+# File trích xuất tạm và dữ liệu thô
+*.py
+*.bat
+*.txt
+pdf_pages/
+ocr_pages/
+.vercel
+.claude/
+.DS_Store
+Thumbs.db
