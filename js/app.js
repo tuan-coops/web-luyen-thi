@@ -1403,10 +1403,10 @@
         }
       }
       this.isPushing = false;
-      this.resolveRoute(path);
+      this.resolveRoute(path, false);
     },
 
-    resolveRoute: function(path) {
+    resolveRoute: function(path, updateUrl = false) {
       const current = path || this.getCurrentPath();
       const clean = current.split('?')[0].replace(/\/+$/, '') || '/';
       const urlParams = new URLSearchParams(window.location.search || (current.includes('?') ? current.split('?')[1] : ''));
@@ -1414,13 +1414,13 @@
 
       // 1. /login
       if (clean === '/login') {
-        showLoginScreen(false);
+        showLoginScreen(updateUrl);
         return;
       }
 
       // 2. / or /chon-lop
       if (clean === '/' || clean === '/chon-lop') {
-        showGradeSelection(false);
+        showGradeSelection(updateUrl);
         return;
       }
 
@@ -1428,7 +1428,7 @@
       const gradeMatch = clean.match(/^\/lop-(\d+)$/);
       if (gradeMatch) {
         const g = gradeMatch[1];
-        showModeSelection(g, false);
+        showModeSelection(g, updateUrl);
         return;
       }
 
@@ -1438,7 +1438,7 @@
         const g = topicMatch[1];
         const topicSlug = topicMatch[2];
         const topicId = topicSlug ? this.getTopicIdBySlug(topicSlug) : null;
-        enterGradeWorkspace(g, "topics", "gk1", topicId, null, false);
+        enterGradeWorkspace(g, "topics", "gk1", topicId, null, updateUrl);
         if (tabParam) {
           switchTab(tabParam, false);
         }
@@ -1452,12 +1452,12 @@
         const cat = examMatch[2] || "gk1";
         const examSlug = examMatch[3];
         const examId = examSlug ? this.getExamIdBySlug(examSlug) : null;
-        enterGradeWorkspace(g, "exams", cat, null, examId, false);
+        enterGradeWorkspace(g, "exams", cat, null, examId, updateUrl);
         return;
       }
 
       // Fallback
-      showGradeSelection(false);
+      showGradeSelection(updateUrl);
     },
 
     init: function() {
