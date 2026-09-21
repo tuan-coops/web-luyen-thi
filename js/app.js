@@ -1403,6 +1403,7 @@
         }
       }
       this.isPushing = false;
+      this.resolveRoute(path);
     },
 
     resolveRoute: function(path) {
