@@ -2925,22 +2925,51 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .btn-user-logout {
-  background: transparent;
-  border: none;
-  color: var(--text-muted);
-  font-size: 13px;
-  cursor: pointer;
-  padding: 2px 4px;
-  border-radius: 4px;
   display: inline-flex;
   align-items: center;
-  transition: all 0.15s;
-  margin-left: 2px;
+  gap: 6px;
+  background: rgba(239, 68, 68, 0.08);
+  border: 1.5px solid rgba(239, 68, 68, 0.3);
+  color: #ef4444;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  padding: 6px 14px;
+  border-radius: var(--radius-full);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  white-space: nowrap;
+  line-height: 1.2;
 }
 
 .btn-user-logout:hover {
-  color: #ef4444;
-  background: rgba(239, 68, 68, 0.1);
+  background: #ef4444;
+  color: #ffffff;
+  border-color: #ef4444;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
+}
+
+.btn-user-logout .logout-icon {
+  font-size: 14px;
+  line-height: 1;
+}
+
+.btn-user-logout .logout-text {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+
+[data-theme="dark"] .btn-user-logout {
+  background: rgba(248, 113, 113, 0.12);
+  border-color: rgba(248, 113, 113, 0.35);
+  color: #f87171;
+}
+
+[data-theme="dark"] .btn-user-logout:hover {
+  background: #ef4444;
+  color: #ffffff;
+  border-color: #ef4444;
 }
 
 @media (max-width: 768px) {

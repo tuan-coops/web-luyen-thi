@@ -1310,8 +1310,11 @@
               <span class="user-badge-avatar">${user.avatar || (user.role === 'teacher' ? '👨‍🏫' : '👨‍🎓')}</span>
               <span class="user-badge-name" title="${user.name}">${user.name}</span>
               <span class="user-badge-role ${user.role}">${user.role === 'teacher' ? 'Giáo viên' : 'Học sinh'}</span>
-              <button type="button" class="btn-user-logout" title="Đăng xuất">🚪</button>
             </div>
+            <button type="button" class="btn-user-logout" title="Đăng xuất khỏi tài khoản">
+              <span class="logout-icon">🚪</span>
+              <span class="logout-text">Đăng xuất</span>
+            </button>
           `;
           w.querySelector('.btn-user-logout')?.addEventListener('click', (e) => {
             e.stopPropagation();
