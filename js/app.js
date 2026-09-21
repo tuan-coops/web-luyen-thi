@@ -1115,12 +1115,14 @@
     const themeBtn = document.getElementById('theme-toggle-btn');
     const themeBtnLanding = document.getElementById('theme-toggle-btn-landing');
     const themeBtnMode = document.getElementById('theme-toggle-btn-mode');
+    const themeBtnLogin = document.getElementById('theme-toggle-btn-login');
 
     const updateBtns = (theme) => {
       const icon = theme === 'dark' ? '☀️' : '🌙';
       if (themeBtn) themeBtn.innerHTML = icon;
       if (themeBtnLanding) themeBtnLanding.innerHTML = icon;
       if (themeBtnMode) themeBtnMode.innerHTML = icon;
+      if (themeBtnLogin) themeBtnLogin.innerHTML = icon;
     };
 
     updateBtns(savedTheme);
@@ -1136,6 +1138,7 @@
     if (themeBtn) themeBtn.addEventListener('click', toggleTheme);
     if (themeBtnLanding) themeBtnLanding.addEventListener('click', toggleTheme);
     if (themeBtnMode) themeBtnMode.addEventListener('click', toggleTheme);
+    if (themeBtnLogin) themeBtnLogin.addEventListener('click', toggleTheme);
   }
 
   // ==============================================================================
@@ -3319,10 +3322,10 @@
     });
 
     // Chuyển tab Đăng nhập / Đăng ký
-    const tabSignIn = document.getElementById('auth-tab-signin');
-    const tabSignUp = document.getElementById('auth-tab-signup');
-    const formSignIn = document.getElementById('form-signin');
-    const formSignUp = document.getElementById('form-signup');
+    const tabSignIn = document.getElementById('tab-auth-login') || document.getElementById('auth-tab-signin');
+    const tabSignUp = document.getElementById('tab-auth-register') || document.getElementById('auth-tab-signup');
+    const formSignIn = document.getElementById('form-login') || document.getElementById('form-signin');
+    const formSignUp = document.getElementById('form-register') || document.getElementById('form-signup');
 
     if (tabSignIn && tabSignUp) {
       tabSignIn.addEventListener('click', () => {
@@ -3342,17 +3345,15 @@
 
     // 1-Click Demo Accounts
     document.getElementById('btn-quick-login-student')?.addEventListener('click', () => {
-      const res = authManager.login('hocsinh@toan.edu.vn', '123456');
-      if (res.success) {
-        showToast(`Xin chào học sinh ${res.user.name}!`);
+      const ok = authManager.login('hocsinh@toan.edu.vn', '123456');
+      if (ok) {
         AppRouter.push('/lop-12');
       }
     });
 
     document.getElementById('btn-quick-login-teacher')?.addEventListener('click', () => {
-      const res = authManager.login('giaovien@toan.edu.vn', '123456');
-      if (res.success) {
-        showToast(`Kính chào thầy cô ${res.user.name}!`);
+      const ok = authManager.login('giaovien@toan.edu.vn', '123456');
+      if (ok) {
         AppRouter.push('/lop-12');
       }
     });
@@ -3361,14 +3362,16 @@
     if (formSignIn) {
       formSignIn.addEventListener('submit', function(e) {
         e.preventDefault();
-        const email = document.getElementById('signin-email')?.value.trim();
-        const password = document.getElementById('signin-password')?.value;
-        const res = authManager.login(email, password);
-        if (res.success) {
-          showToast(`Đăng nhập thành công! Chào ${res.user.name}`);
+        const userInput = document.getElementById('input-login-user') || document.getElementById('signin-email');
+        const passInput = document.getElementById('input-login-pass') || document.getElementById('signin-password');
+        const roleInput = document.querySelector('input[name="login-role"]:checked');
+        const email = userInput ? userInput.value.trim() : '';
+        const password = passInput ? passInput.value : '';
+        const role = roleInput ? roleInput.value : 'student';
+
+        const ok = authManager.login(email, password, role);
+        if (ok) {
           AppRouter.push('/lop-12');
-        } else {
-          alert(res.message);
         }
       });
     }
@@ -3377,17 +3380,19 @@
     if (formSignUp) {
       formSignUp.addEventListener('submit', function(e) {
         e.preventDefault();
-        const name = document.getElementById('signup-name')?.value.trim();
-        const email = document.getElementById('signup-email')?.value.trim();
-        const password = document.getElementById('signup-password')?.value;
-        const role = document.querySelector('input[name="signup-role"]:checked')?.value || 'student';
+        const nameInput = document.getElementById('input-reg-name') || document.getElementById('signup-name');
+        const userInput = document.getElementById('input-reg-user') || document.getElementById('signup-email');
+        const passInput = document.getElementById('input-reg-pass') || document.getElementById('signup-password');
+        const roleInput = document.querySelector('input[name="reg-role"]:checked') || document.querySelector('input[name="signup-role"]:checked');
 
-        const res = authManager.register({ name, email, password, role });
-        if (res.success) {
-          showToast("Đăng ký thành công! Đang chuyển tiếp...");
+        const name = nameInput ? nameInput.value.trim() : '';
+        const username = userInput ? userInput.value.trim() : '';
+        const password = passInput ? passInput.value : '';
+        const role = roleInput ? roleInput.value : 'student';
+
+        const ok = authManager.register(name, username, password, role);
+        if (ok) {
           AppRouter.push('/lop-12');
-        } else {
-          alert(res.message);
         }
       });
     }
@@ -3627,7 +3632,8 @@
     initTheme();
     loadStats();
     loadCustomMaterials();
-    authManager.initSession();
+    authManager.getCurrentUser();
+    authManager.updateWidgets();
     initEvents();
 
     // Khởi tạo router điều hướng URL
