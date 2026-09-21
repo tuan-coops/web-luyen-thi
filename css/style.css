@@ -1342,6 +1342,8 @@ h1, h2, h3, h4, h5, h6 {
   background-color: #ffffff;
   color: var(--primary-color);
   font-weight: 700;
+}
+
 /* Section Containers */
 .section-panel {
   display: none;

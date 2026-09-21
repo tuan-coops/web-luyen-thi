@@ -3411,6 +3411,18 @@
       }
     });
 
+    // Tự động điều hướng SPA cho các thẻ link nội bộ
+    document.addEventListener('click', function(e) {
+      const a = e.target.closest('a[href^="/"]');
+      if (a && !a.hasAttribute('target') && !a.hasAttribute('download')) {
+        const href = a.getAttribute('href');
+        if (href && !href.startsWith('//')) {
+          e.preventDefault();
+          AppRouter.push(href);
+        }
+      }
+    });
+
     // 1. Màn hình 1 (Chọn khối lớp): Click vào thẻ khối lớp -> Chuyển sang Màn hình 2 (Chọn hình thức)
     document.querySelectorAll('.grade-card').forEach(card => {
       card.addEventListener('click', function() {
